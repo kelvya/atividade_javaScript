@@ -2,6 +2,7 @@
 
 Cola de estrutura das classes para css
 
+```
 .jogo
 	.jogo--telaInicial
 		.jogo--telaInicial--imagens
@@ -26,3 +27,4 @@ Cola de estrutura das classes para css
 
 
 	.jogo--telaJogo
+```
