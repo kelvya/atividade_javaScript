@@ -1,0 +1,49 @@
+/*--------------
+* Opção esconder
+*---------------*/
+.hide {
+  display: none;
+}
+
+/*------------
+* Tela Inicail
+*-------------*/
+.jogo--telaInicial {
+  padding: 1rem;
+  text-align: center;
+}
+.jogo--telaInicial--placeholder {
+  display: block;
+  margin: 1.5rem auto;
+  width: 50%;
+  height: 3rem;
+  text-align: center;
+  border: 0.1rem solid black;
+}
+.jogo--telaInicial--botao {
+  margin: 1.5rem auto;
+  width: 50%;
+  height: 3rem;
+  border: 0.1rem solid black;
+}
+
+.jogo--telaInicial--imagens {
+  margin: 0.5rem;
+}
+.jogo--telaInicial--imagens-1,
+.jogo--telaInicial--imagens .jogo--telaInicial--imagens-2,
+.jogo--telaInicial--imagens .jogo--telaInicial--imagens-3 {
+  height: 15rem;
+  padding: 1rem;
+  margin: 3rem;
+  border: 0.1rem solid black;
+}
+
+/*---------
+* Tela Jogo
+*----------*/
+/*---------
+* Tela final
+*----------*/
+
+/*# sourceMappingURL=style.css.map */

@@ -1,51 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Now!!!</title>
+    <link rel="stylesheet" href="/src/css/style.css">
 </head>
+
 <body>
     <header></header>
     <main>
-        <div>
+        <div class="jogo">
             <!-- Tela Inicial -->
-            <div id="telaInicial">
-                <div>
-                    <img src="./images/question.png" alt="question">
-                    <img src="./images/question.png" alt="question">
-                    <img src="./images/question.png" alt="question">
+            <div class="jogo--telaInicial" id="telaInicial">
+                <div class="jogo--telaInicial--imagens">
+                    <img class="jogo--telaInicial--imagens-1" src="./images/question.png" alt="question">
+                    <img class="jogo--telaInicial--imagens-2" src="./images/question.png" alt="question">
+                    <img class="jogo--telaInicial--imagens-3" src="./images/question.png" alt="question">
                 </div>
-                <input type="text" id="nome" placeholder="Digite seu nome aqui :)">
-                <button id="btnJogar">I N I C I A R</button>
+                <input class="jogo--telaInicial--placeholder" type="text" id="nome"
+                    placeholder="Digite seu nome aqui :)">
+                <button class="jogo--telaInicial--botao" id="btnJogar">I N I C I A R</button>
             </div>
             <!-- Fim Tela Inicial -->
 
             <!-- Tela Jogo -->
-            <div id="telaJogo">
-               
-                    <div>
-                        <p>Pontos: <span id="pontuacao">0</span></p>
-                        <p>Resultado Anterior: <span id="pontuacao">1 1 1</span></p>
-                    </div>
-                    <div>
-                            <img src="./images/question.png" alt="question">
-                            <img src="./images/question.png" alt="question">
-                            <img src="./images/question.png" alt="question">    
-                     </div>
+            <div class="jogo--telaJogo hide" id="telaJogo">
 
-                   <button id="jogar">J O G A R</button>
-               
+                <div class="jogo--telaJogo--pontuacao">
+                    <p class="jogo--telaJogo--pontuacao-p1">Pontos: <span id="pontuacao">0</span></p>
+                    <p class="jogo--telaJogo--pontuacao-p2">Resultado Anterior: <span id="pontuacao">1 1 1</span></p>
+                </div>
+                <div class="jogo--telaJogo--imagens">
+                    <img class="jogo--telaJogo--imagens-1" src="./images/question.png" alt="question">
+                    <img class="jogo--telaJogo--imagens-2" src="./images/question.png" alt="question">
+                    <img class="jogo--telaJogo--imagens-3" src="./images/question.png" alt="question">
+                </div>
+
+                <button class="jogo--telaJogo--botao" id="jogar">J O G A R</button>
+
             </div>
-                    <!-- Fim Tela Jogo -->
+            <!-- Fim Tela Jogo -->
 
             <!-- Tela Winner - Looser -->
-            <div id="winLooser">
+            <div class="hide" id="winLooser">
                 <img src="./images/looser.jpg" alt="winner-looser">
             </div>
             <!-- Fim Tela - Winner - Looser -->
         </div>
     </main>
 </body>
+
 </html>
