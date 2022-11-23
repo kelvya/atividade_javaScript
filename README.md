@@ -1,5 +1,40 @@
 # atividade_javaScript
 
+Jogo de cartas. 
+
+Repositório criado para desafio proposto pela T.EX referente as aulas do módulo de javascript.
+## 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Cola de estrutura das classes para css
 
 ```

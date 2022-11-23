@@ -6,51 +6,176 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Now!!!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/src/js/script.js" async></script>
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <div class="flex header">
+            <span class="header-saudacao" id="user"></span>
+            <div class="header-perfilSair">
+                <button type="button" class="header-perfilSair-perfil" id="perfil"><i class="fa fa-user" aria-hidden="true"></i>Perfil</button>
+                <button type="button" class="header-perfilSair-sair" id="sair"><i class="fa fa-sign-out" aria-hidden="true"></i>SAIR</button>
+            </div>
+        </div>
+    </header>
     <main>
-        <div class="jogo">
+        <div class="jogo ">
             <!-- Tela Inicial -->
             <div class="jogo--telaInicial" id="telaInicial">
-                <div class="jogo--telaInicial--imagens">
-                    <img class="jogo--telaInicial--imagens-1" src="./images/question.png" alt="question">
-                    <img class="jogo--telaInicial--imagens-2" src="./images/question.png" alt="question">
-                    <img class="jogo--telaInicial--imagens-3" src="./images/question.png" alt="question">
+                <div class="jogo--telaInicial--imagens" id="questions">
+                    <img class="jogo--telaInicial--imagens-1" id="cardQuestion1" src="./images/question.png" alt="question">
+                    <img class="jogo--telaInicial--imagens-2" id="cardQuestion2" src="./images/question.png" alt="question">
+                    <img class="jogo--telaInicial--imagens-3" id="cardQuestion3" src="./images/question.png" alt="question">
                 </div>
-                <input class="jogo--telaInicial--placeholder" type="text" id="nome"
-                    placeholder="Digite seu nome aqui :)">
-                <button class="jogo--telaInicial--botao" id="btnJogar">I N I C I A R</button>
+                <div class="jogo--telaInicial--botoes">
+                    <input class="jogo--telaInicial--botoes-placeholder paragrafo-1" type="text" id="nome" placeholder="Digite seu nome aqui :)">
+                    <button type="button" class="jogo--telaInicial--botoes-botao paragrafo-1" id="btnJogar">I N I C I A R</button>
+                </div>
             </div>
             <!-- Fim Tela Inicial -->
 
             <!-- Tela Jogo -->
-            <div class="jogo--telaJogo hide" id="telaJogo">
+            <div class="jogo--telaJogo hide" id="telaJogo"> 
 
-                <div class="jogo--telaJogo--pontuacao">
-                    <p class="jogo--telaJogo--pontuacao-p1">Pontos: <span id="pontuacao">0</span></p>
-                    <p class="jogo--telaJogo--pontuacao-p2">Resultado Anterior: <span id="pontuacao">1 1 1</span></p>
+                <div class="jogo--telaJogo--pontuacao ">
+                    <p class="jogo--telaJogo--pontuacao-p1">Pontos: <span id="pontos">0</span></p>
+                    <p class="jogo--telaJogo--pontuacao-p2">Histórico: <span id="historico">0</span></p>
                 </div>
-                <div class="jogo--telaJogo--imagens">
-                    <img class="jogo--telaJogo--imagens-1" src="./images/question.png" alt="question">
-                    <img class="jogo--telaJogo--imagens-2" src="./images/question.png" alt="question">
-                    <img class="jogo--telaJogo--imagens-3" src="./images/question.png" alt="question">
+                <div class="jogo--telaJogo--imagens" id="numbers">
+                    <img class="jogo--telaJogo--imagens-1" id="img1" src="./images/question.png" alt="question">
+                    <img class="jogo--telaJogo--imagens-2" id="img2" src="./images/question.png" alt="question">
+                    <img class="jogo--telaJogo--imagens-3" id="img3" src="./images/question.png" alt="question">
                 </div>
 
-                <button class="jogo--telaJogo--botao" id="jogar">J O G A R</button>
+                <button type="button" class="jogo--telaJogo--botao btnJogar " id="btnPlay">J O G A R</button>
 
             </div>
             <!-- Fim Tela Jogo -->
 
-            <!-- Tela Winner - Looser -->
-            <div class="hide" id="winLooser">
-                <img src="./images/looser.jpg" alt="winner-looser">
+            <!-- Tela Winner - Looser (Sem os modais de ganhador e perdedor ativar esta tela)-->
+            <div class=" jogo--telaFinal " id="winLooser">
+                <img hidden class="jogo--telaFinal-img" src="./images/looser.jpg" alt="looser" id="perdeu">
+                <img hidden class="jogo--telaFinal-img" src="./images/winner.png" alt="winner" id="ganhou">
             </div>
             <!-- Fim Tela - Winner - Looser -->
+
+
+
+
+
+
+
+
+
+
+            <!-- inicio modal REGRAS-->
+            <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal--regras hide" id="modalRegras">
+                                <h3>Atenção para as regras:</h3>
+                                <p><i class="fa fa-check" aria-hidden="true"></i> Clique em jogar para começar</p>
+                                <p><i class="fa fa-check" aria-hidden="true"></i> Clique nas cartas para revelar os números sorteados</p>
+                                <p><i class="fa fa-check" aria-hidden="true"></i> Clique em sortear para um novo sorteio</p>
+                                <p><i class="fa fa-check" aria-hidden="true"></i> Você tem 10 tentativas de sorteio</p>
+                                <p><i class="fa fa-check" aria-hidden="true"></i> Você ganha 1 ponto se os números sorteados estiverem em sequência:</p>
+                                <p> 111, 222 ou 333</p>
+                                <p><i class="fa fa-check" aria-hidden="true"></i> Você também ganha 1 ponto se o último sorteio for igual ao novo sorteio</p>
+                                <p><i class="fa fa-trophy" aria-hidden="true"></i> Consegue fazer 3 pontos?</p>
+                                <p><i class="fa fa-smile" aria-hidden="true"> Boa sorte!</i></p>
+                            </div>
+                            <div class="modal--viraCartas hide" id="modalviraCartas">
+                                <p>Para sortear uma nova sequência é necessário revelar as cartas</p>
+                            </div>
+                            <div class=" modal--telaFinal hide" id="modalTelaFinal">
+                                <h2 hidden class="modal-info-ganhou">Parabéns! Ganhou o jogo</h2>
+                                <h2 hidden class="modal-info-perdeu">Não foi dessa vez, continue tentando...</h2>
+                                <img class="jogo--telaFinal-img modal-perdeu" hidden src="./images/looser.jpg" alt="looser" id="perdeu">
+                                <img class="jogo--telaFinal-img modal-ganhou" hidden src="./images/winner.png" alt="winner" id="ganhou">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">JOGAR</button>
+                            <button type="button" hidden class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fim modal REGRAS-->
+
+
+
+
+
+
+
+
+
+
+
+            <!-- inicio modal Ganhador -->
+            <!-- <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class=" jogo--telaFinal " id="winLooser">
+                                <img class="jogo--telaFinal-img" src="./images/looser.jpg" alt="looser" id="perdeu" class="">
+                                <img class="jogo--telaFinal-img" src="./images/winner.png" alt="winner" id="ganhou" class="">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- fim modal Ganhador -->
+
+            <!-- inicio modal Perdedor-->
+            <!-- <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class=" jogo--telaFinal " id="winLooser">
+                                <img class="jogo--telaFinal-img" src="./images/looser.jpg" alt="looser" id="perdeu" class="">
+                                <img class="jogo--telaFinal-img" src="./images/winner.png" alt="winner" id="ganhou" class="">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- fim modal Perdedor-->
         </div>
     </main>
+
+    <footer></footer>
 </body>
 
 </html>

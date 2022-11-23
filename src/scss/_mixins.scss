@@ -1,0 +1,27 @@
+@use "variaveis" as v;
+
+@mixin p-1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #5e5858;
+    font-size: large;
+}
+
+@mixin boxImagens {
+    height: 15rem;
+    padding: 1rem;
+    margin: 3vw 7vw;
+    border: 0.1rem solid black;
+    border: 0.1rem solid white;
+    border-radius: 1rem;
+    box-shadow: -5px 4px 8px rgb(14, 13, 13);
+}
+
+@mixin botao {
+    display: block;
+    margin: 1.5rem auto;
+    height: 3rem;
+    border: 0.1rem solid black;
+    border: 0.1rem solid white;
+    border-radius: 1rem;
+    box-shadow: -5px 4px 8px rgb(14, 13, 13); 
+}
