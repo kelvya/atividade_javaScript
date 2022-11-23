@@ -1,6 +1,6 @@
-# Jogo dos números Jogo dos números 
+# Jogo dos números
 
-
+https://user-images.githubusercontent.com/99570969/203660584-40accb31-1521-423f-811b-b451f4a83105.mp4
 
 Repositório criado para desenvolver e aplicar a lógica de programação em um programa Javascript. Atividade proposta pela  [T.EX - Technology Experts](https://www.texperts.com.br) como desenvolvimento dos módulos de JavaScript e JQuery do curso Full Stack JavaScript Developer.
 
