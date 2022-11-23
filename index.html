@@ -68,16 +68,7 @@
             </div>
             <!-- Fim Tela - Winner - Looser -->
 
-
-
-
-
-
-
-
-
-
-            <!-- inicio modal REGRAS-->
+            <!-- inicio MODAL-->
             <div class="modal" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -102,76 +93,21 @@
                                 <p>Para sortear uma nova sequência é necessário revelar as cartas</p>
                             </div>
                             <div class=" modal--telaFinal hide" id="modalTelaFinal">
-                                <h2 hidden class="modal-info-ganhou">Parabéns! Ganhou o jogo</h2>
-                                <h2 hidden class="modal-info-perdeu">Não foi dessa vez, continue tentando...</h2>
+                                <h2 hidden class="modal-info-ganhou" id="infoGanhou">Parabéns! Ganhou o jogo</h2>
+                                <h2 hidden class="modal-info-perdeu" id="infoPerdeu">Não foi dessa vez, continue tentando...</h2>
                                 <img class="jogo--telaFinal-img modal-perdeu" hidden src="./images/looser.jpg" alt="looser" id="perdeu">
                                 <img class="jogo--telaFinal-img modal-ganhou" hidden src="./images/winner.png" alt="winner" id="ganhou">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">JOGAR</button>
-                            <button type="button" hidden class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary mostrarPerfil" data-bs-dismiss="modal" id="mostrarPerfil">FECHAR</button>
+                            <button type="button" class="btn btn-primary reiniciarJogo" hidden data-bs-dismiss="modal" id="reiniciarJogo">JOGAR NOVAMENTE</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- fim modal REGRAS-->
+            <!-- fim MODAL-->
 
-
-
-
-
-
-
-
-
-
-
-            <!-- inicio modal Ganhador -->
-            <!-- <div class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class=" jogo--telaFinal " id="winLooser">
-                                <img class="jogo--telaFinal-img" src="./images/looser.jpg" alt="looser" id="perdeu" class="">
-                                <img class="jogo--telaFinal-img" src="./images/winner.png" alt="winner" id="ganhou" class="">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- fim modal Ganhador -->
-
-            <!-- inicio modal Perdedor-->
-            <!-- <div class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class=" jogo--telaFinal " id="winLooser">
-                                <img class="jogo--telaFinal-img" src="./images/looser.jpg" alt="looser" id="perdeu" class="">
-                                <img class="jogo--telaFinal-img" src="./images/winner.png" alt="winner" id="ganhou" class="">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- fim modal Perdedor-->
         </div>
     </main>
 

@@ -1,6 +1,6 @@
-const inputNome = document.querySelector('#nome') //usuário insere o nome de jogador no campo nome
-let spanUser = document.querySelector('#user') //nome será recuperado na TelaJogo
-const btnJogar = document.querySelector('#btnJogar') //btnJogar.click : nome é armazenado em localStorage e recuperado na TelaJogo
+const inputNome = document.querySelector('#nome') 
+let spanUser = document.querySelector('#user') 
+const btnJogar = document.querySelector('#btnJogar') 
 let nome
 let imgs = document.querySelectorAll('#numbers img')
 let img1 = document.querySelector('#img1')
@@ -14,6 +14,15 @@ var pontos = 0
 var historico = 0
 var ultimoHistorico
 let numSorteado
+const mostrarPerfil = document.querySelector('#mostrarPerfil')
+
+
+const modalTelaFinal = document.querySelector('#modalTelaFinal')
+const reiniciarJogo = document.querySelector('#reiniciarJogo')
+const ganhou = document.querySelector('#ganhou')
+const infoGanhou = document.querySelector('#infoGanhou')
+const perdeu = document.querySelector('#perdeu')
+const infoPerdeu = document.querySelector('#infoPerdeu')
 
 
 
@@ -45,11 +54,7 @@ function alteraimagens(){
         el.addEventListener('click',
         (e,x)=>{
             e.target.src=`./images/number_${numSorteado[index]}.png`
-            
             btnPlay.textContent = `S O R T E A R`
-            
-
-
             })  
          })
 }
@@ -81,116 +86,110 @@ btnPlay.addEventListener('click', function(){
     img2.setAttribute('src', './images/question.png')
     img3.setAttribute('src', './images/question.png')
     alteraimagens(combo)
+    numSorteado = (combo.slice(-3))
+    verificaPontos()
 
 
-//////DADOS SALVOS COMO OBJETO
-    // function Usuario(nomeUsuario, pontosUsuario, hitoricoUsuario, numSorteadosUsuario) {
-    //     this.nomeUsuario = nomeUsuario;
-    //     this.pontosUsuario = pontosUsuario;
-    //     this.hitoricoUsuario = hitoricoUsuario;
-    //     this.numSorteadosUsuario = numSorteadosUsuario;
-    // }
 
-    // dadosUsuario = new Usuario(nome, pontos, historico, combo)
-    // nome=! '' ? localStorage.setItem('novoUsuarioXXX', JSON.stringify(dadosUsuario)): null
-
-    // getDadosUsuario = localStorage.getItem('usuario')
-    // dadosUsuarioObject = JSON.parse(getDadosUsuario)
-
-
-numSorteado = (combo.slice(-3))
-
-verificaPontos()
-
-console.log(`------------------------`)
+console.log(`XXXXXXXXXXXXXXXXXXXX`)
 console.log(`nome: ${nome}`)
 console.log(`pontos: ${pontos}`)
 console.log(`ultimoHistorico: ${ultimoHistorico}`)
 console.log(`numSorteado: ${numSorteado}`)
-console.log(`------------------------`)
 console.log(combo.length)
-
-
+console.log(`XXXXXXXXXXXXXXXXXXXXX`)
 })
 
+function zerarJogo(){
+    location.reload();
+    inputNome.value = nome;
+
+}
+
+//JQUERY
 $().ready(function () {
     $('#btnJogar').click(function () {
-        // mostrar a modal com a div de regras antes de comecar o jogo - class="modal--regras" id="modalRegras"
         inputNome.value !== '' ? $('.modal').modal('show'): null
         $('.modal--regras').removeClass('hide')
+        //ORGANIZAR OS BOTÕES
     })
-    $('#btnPlay').click(function () {  //mostrar o modal com a div - class=" modal--viraCartas" id="modalviraCartas" 
+    $('#btnPlay').click(function () {  
         if(ultimoHistorico == undefined ){
             $('.modal').modal('show')
             $('.modal--regras').addClass('hide')
             $('.modal--viraCartas').removeClass('hide')
         }
-        
-        // mostrar a modal com a tela final de ganhador ou perdedor e ativar a classe desfoque para a tela jogo - class=" modal--telaFinal " id="modalTelaFinal"
-        
-        
-            if(combo.length >= 29 && pontos >=3){
-                spanUser.innerHTML = `Parabéns ${inputNome.value}! Você ganhou o jogo 👏👏👏`
-                // MOSTRAR O RESULTADO SEM MODAL
-                // $('#telaJogo').addClass('hide')
-                // $('#winLooser').removeClass('hide')
-                // $('#ganhou').removeAttr('hidden')
 
-                // MOSTRAR RESULTADO COM MODAL
-                $('.modal').modal('show')
-                $('.modal--regras').addClass('hide')
-                $('.modal--viraCartas').addClass('hide')
-                $('.modal--telaFinal').removeClass('hide')
-                $('.modal-ganhou').removeAttr('hidden')
-                $('.modal-info-ganhou').removeAttr('hidden')
+        if(combo.length > 29 && pontos >=3){
+            spanUser.innerHTML = `Parabéns ${inputNome.value}! Você ganhou o jogo 👏👏👏`
+
+            // MOSTRAR O RESULTADO SEM MODAL
+            // $('#telaJogo').addClass('hide')
+            // $('#winLooser').removeClass('hide')
+            // $('#ganhou').removeAttr('hidden')
+
+            // MOSTRAR RESULTADO COM MODAL
+            $('.modal').modal('show')
+            $('.modal--regras').addClass('hide')
+            $('.modal--viraCartas').addClass('hide')
+            $('.modal--telaFinal').removeClass('hide')
+            $('.modal-ganhou').removeAttr('hidden')
+            $('.modal-info-ganhou').removeAttr('hidden')
+            $('.reiniciarJogo').removeAttr('hidden')
                 
-            }else if(combo.length >= 29 && pontos <3){
-                spanUser.innerHTML = `Não foi dessa vez ${inputNome.value}. Continue tentando...`
+        }else if(combo.length > 29 && pontos <2){
+            spanUser.innerHTML = `Não foi dessa vez ${inputNome.value}. Continue tentando...`
 
-                // MOSTRAR O RESULTADO SEM MODAL
-                // $('#telaJogo').addClass('hide')
-                // $('#winLooser').removeClass('hide')
-                // $('#perdeu').removeAttr('hidden')
+            // MOSTRAR O RESULTADO SEM MODAL
+            // $('#telaJogo').addClass('hide')
+            // $('#winLooser').removeClass('hide')
+            // $('#perdeu').removeAttr('hidden')
                 
-                // MOSTRAR RESULTADO COM MODAL
-                $('.modal').modal('show')
-                $('.modal--regras').addClass('hide')
-                $('.modal--viraCartas').addClass('hide')
-                $('.modal--telaFinal').removeClass('hide')
-                $('.modal-perdeu').removeAttr('hidden')
-                $('.modal-info-perdeu').removeAttr('hidden')
-
-            }else null
+            // MOSTRAR RESULTADO COM MODAL
+            $('.modal').modal('show')
+            $('.modal--regras').addClass('hide')
+            $('.modal--viraCartas').addClass('hide')
+            $('.modal--telaFinal').removeClass('hide')
+            $('.modal-perdeu').removeAttr('hidden')
+            $('.modal-info-perdeu').removeAttr('hidden')
+            $('.reiniciarJogo').removeAttr('hidden')
+        }else null
     })
+})
+
+
+
+
+
+
+
+reiniciarJogo.addEventListener('click', function(){
+    zerarJogo()
 
 })
 
 
-// function Usuario(nomeUsuario, pontosUsuario, hitoricoUsuario, numSorteadosUsuario) {
-// this.nomeUsuario = nomeUsuario;
-// this.pontosUsuario = pontosUsuario;
-// this.hitoricoUsuario = hitoricoUsuario;
-// this.numSorteadosUsuario = numSorteadosUsuario;
-// }
+
+//dadosNome = nome
+//hitoricoPontos = [] fazer um historicoPontos.push({data: pontos})
+//ultimoLogin = função Date() arquiva em um array
+//recordePontos = forEach de historicoPontos
+
+//////DADOS SALVOS COMO OBJETO
+    // function Usuario(dadosNome, historicoPontos, ultimoLogin, recordePontos) {
+    //     this.dadosNome = dadosNome;
+    //     this.historicoPontos = historicoPontos;
+    //     this.ultimoLogin = ultimoLogin;
+    //     this.recordePontos = recordePontos;
+    // }
+
+    // dadosUsuario = new Usuario(nome, pontos, historico, combo)
+    // combo.length == 30 ? localStorage.setItem('novoUsuarioXXX', JSON.stringify(dadosUsuario)): null
+
+    // getDadosUsuario = localStorage.getItem('usuario')
+    // dadosUsuarioObject = JSON.parse(getDadosUsuario)
 
 
-// dadosUsuario = new Usuario(nome, pontos, historico, combo)
-// nome=! '' ? localStorage.setItem('novoUsuarioXXX', JSON.stringify(dadosUsuario)): null
+//         numSorteados.push({nome: inputNome.value, numSorteados: numSorteados.})
 
-// var salvarDados = function(){
-
-// }
-
-// getDadosUsuario = localStorage.getItem('usuario')
-// dadosUsuarioObject = JSON.parse(getDadosUsuario)
-
-
-// // let numSorteados
-// // let numeros = [1, 2, 3]
-// // var sortear = parseInt(Math.random()*3)
-// // btnPlay.onclick = function() {
-        
-// //         let numSorteados = new Array()
-// //         numSorteados.push({nome: inputNome.value, numSorteados: numSorteados.})
-// // }
 
